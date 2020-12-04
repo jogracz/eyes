@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import "fontsource-roboto";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
