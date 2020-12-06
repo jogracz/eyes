@@ -17,11 +17,7 @@ import logo from "../images/rn.png";
 const BRAND_NAME = "Real News";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   title: {
-    // flexGrow: 1,
     marginLeft: 10,
     display: "none",
     [theme.breakpoints.up("sm")]: {
@@ -35,35 +31,17 @@ const useStyles = makeStyles((theme) => ({
     width: 400,
   },
   header: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 100,
+    paddingRight: 100,
+    display: "flex",
+    justifyContent: "space-between",
   },
   brand: {
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    flexGrow: 1,
     maxWidth: 250,
-    marginRight: 20,
   },
-  grow: {
-    flexGrow: 2,
-  },
-  favorites: {
-    // flexGrow: 1,
-  },
-  // root: {
-  //   padding: "2px 4px",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   width: 400,
-  // },
   input: {
     marginLeft: theme.spacing(1),
     flex: 1,
-  },
-  iconButton: {
-    padding: 10,
   },
 }));
 
@@ -78,16 +56,14 @@ const Header = (props) => {
     setQuery(value);
   };
   return (
-    <div className={classes.root}>
-      <AppBar position="fixed" className={classes.header}>
-        <Toolbar>
+      <AppBar position="fixed">
+        <Toolbar className={classes.header}>
           <ButtonBase className={classes.brand} onClick={handleShowHome}>
             <Avatar src={logo} />
             <Typography className={classes.title} variant="h6" noWrap>
               {BRAND_NAME}
             </Typography>
           </ButtonBase>
-          <div className={classes.grow}></div>
           <Paper className={classes.search}>
             <InputBase
               className={classes.input}
@@ -97,18 +73,15 @@ const Header = (props) => {
             />
             <IconButton
               type="submit"
-              className={classes.iconButton}
               aria-label="search"
               onClick={handleSubmit}
             >
               <SearchIcon />
             </IconButton>
           </Paper>
-          <div className={classes.grow} />
           <IconButton
             aria-label="show favorites"
             color="inherit"
-            className={classes.favorites}
             onClick={handleFavoritesClick}
           >
             <Badge badgeContent={favoritesCount} color="secondary">
@@ -117,7 +90,6 @@ const Header = (props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-    </div>
   );
 };
 
